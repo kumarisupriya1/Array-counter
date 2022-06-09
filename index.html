@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array and Counter</title>
+  </head>
+  <body>
+    <script>
+      function countFreq(arr, n) {
+        let visited = Array.from({ length: n }, (_, i) => false);
+
+        for (let i = 0; i < n; i++) {
+          if (visited[i] == true) continue;
+
+          let count = 1;
+          for (let j = i + 1; j < n; j++) {
+            if (arr[i] == arr[j]) {
+              visited[j] = true;
+              count++;
+            }
+          }
+          document.write(arr[i] + " " + count + "<br/>");
+        }
+      }
+
+      let arr = [1, 2, 1, 1, 2, 3, 3, 3, 3, 6, 6, 7, 7, 7];
+      let n = arr.length;
+      countFreq(arr, n);
+    </script>
+  </body>
+</html>
